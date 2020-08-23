@@ -7,7 +7,7 @@ const dbName = process.env.MONGO_DB;
 const URI = `mongodb+srv://${dbUser}:${dbPassword}@cluster0.mkuls.mongodb.net/${dbName}?retryWrites=true&w=majority`;
 
 // Connectingo to MongoDB Atlas
-mongoose.connect(URI,{useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false} )
+mongoose.connect(URI,{useUnifiedTopology: true, useNewUrlParser: true, useFindAndModify: false, useCreateIndex: true} )
         .then(db => console.log('connected to DB'))
         .catch(err => console.error(err));
 

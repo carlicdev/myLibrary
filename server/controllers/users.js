@@ -1,3 +1,4 @@
+const passport = require('../passport/passport');
 const User = require('../models/user');
 
 // Handle errors
@@ -22,7 +23,11 @@ const handleErrors = (err) => {
 }
 
 exports.user_get = (req, res) => {
-    res.send('from user_get');
+    if (req.user) {
+        return res.status(200).json({ user: req.user.username })
+    } else {
+        return res.status(200).json({ user: null})
+    }
 };
 
 exports.signin = async (req, res) => {
@@ -38,7 +43,10 @@ exports.signin = async (req, res) => {
 };
 
 exports.login = (req, res) => {
-    res.send('from login')
+    res.status(200).json({
+        username: req.user.username,
+        email: req.user.email
+    });
 };
 
 exports.logout = (req, res) => {

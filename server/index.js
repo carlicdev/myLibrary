@@ -3,6 +3,8 @@ require('dotenv').config();
 const cors = require('cors');
 const morgan = require('morgan');
 const path = require('path');
+const session = require('express-session');
+const passport = require('passport');
 
 const app = express();
 
@@ -25,8 +27,17 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, './client/build')));
 
 // Sessions
+app.use(
+    session({
+        secret: process.env.SESSION_SECRET,
+        resave: false,
+        saveUninitialized: false
+    })
+);
 
 // Passport
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Api
 app.use('/user', userRouter);

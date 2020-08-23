@@ -1,11 +1,15 @@
 import './assets/main.css'
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 import App from './App';
+import SessionContextProvider from './context/session-context';
 
 ReactDOM.render(
-  <React.StrictMode>
+  <SessionContextProvider>
+  <Router>
     <App />
-  </React.StrictMode>,
+  </Router>
+  </SessionContextProvider>,
   document.getElementById('root')
 );

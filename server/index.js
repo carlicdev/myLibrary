@@ -42,6 +42,11 @@ app.use(passport.session());
 // Api
 app.use('/user', userRouter);
 
+// Handles any requests that don't match the ones above
+app.get('*', (req,res) =>{
+    res.sendFile(path.join(__dirname+'/client/build/index.html'));
+});
+
 app.listen(app.get('PORT'), () => {
     console.log(`Server on PORT: ${app.get('PORT')}`);
 });

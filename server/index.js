@@ -24,7 +24,7 @@ app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 
 // Serve React static files
-app.use(express.static(path.join(dirname, '../client/build')));
+app.use(express.static(path.join(__dirname, '../client/build')));
 
 // Sessions
 app.use(

@@ -5,6 +5,7 @@ export const SessionContext = createContext();
 
 const SessionContextProvider = (props) => {
     const [user, setUser] = useState(null);
+    const [serverMsg, setServerMsg] = useState(null);
 
     useEffect(() => {
         getUser();
@@ -15,17 +16,47 @@ const SessionContextProvider = (props) => {
         setUser(res.data.user);
     };
 
+    const _signin = async (e, username, email, password) => {
+        e.persist();
+        e.preventDefault();
+        try {
+            let res = await fetch('user/signin', {
+                method: 'POST',
+                body: JSON.stringify({username, email, password}),
+                headers: { 'Content-Type': 'application/json'}
+            });
+            let data = await res.json();
+            if (data.errors) {
+                setServerMsg(data.errors)
+            } else {
+                setServerMsg(null)
+               _login(e, username, password)
+            }
+        } catch (err) {
+            console.log(err)
+        }
+    }
+
     const _login = async (e, username, password) => {
         e.preventDefault();
         await axios.post('/user/login', {username, password});
         getUser();
     }
 
-    console.log(user)
+    const _logout = async (e) => {
+        e.preventDefault();
+        await axios.get('/user/logout');
+        getUser();
+    }
+
+    console.log(serverMsg)
     return (
         <SessionContext.Provider value={{
             user,
-            _login
+            serverMsg,
+            _signin,
+            _login,
+            _logout
         }}>
             {props.children}
         </SessionContext.Provider>

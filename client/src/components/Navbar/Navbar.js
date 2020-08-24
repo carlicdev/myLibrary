@@ -6,7 +6,7 @@ import { IoMdCloseCircle } from 'react-icons/io';
 import { SessionContext } from '../../context/session-context';
 
 const Navbar = () => {
-    const { user } = useContext(SessionContext);
+    const { user, _logout } = useContext(SessionContext);
     const [isOpen, setIsOpen] = useState(false);
 
     return (
@@ -42,10 +42,10 @@ const Navbar = () => {
                     <div className=' absolute top-1 right-0  text-white bg-blue-600 mr-1 p-2 rounded-b'>
                         {
                             user && (
-                                <div className='hover:bg-blue-800 mx-auto p-1 rounded'>
-                                    <Link to='/login'>
+                                <div className='hover:bg-blue-800 mx-auto p-1 rounded' onClick={() => setIsOpen(!isOpen)}>
+                                    <button type='button' className='focus:outline-none' onClick={_logout}>
                                         Logout
-                                    </Link>
+                                    </button>
                                 </div>
                             )
                         }

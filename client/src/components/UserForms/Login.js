@@ -1,18 +1,11 @@
 import React, { useState, useContext } from 'react';
 import { Redirect } from 'react-router-dom';
-import axios from 'axios';
 import { SessionContext } from '../../context/session-context';
 
 const Login = () => {
     const { user, _login } = useContext(SessionContext);
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-
-    const handleSubmit = async e => {
-        e.preventDefault();
-        let res = await axios.post('/user/login', {username, password});
-        console.log(res);
-    }
 
     return (
         <div>

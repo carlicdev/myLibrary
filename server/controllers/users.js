@@ -8,7 +8,7 @@ const handleErrors = (err) => {
     // duplicate error code
     if (err.code === 11000) {
         errors[Object.keys(err.keyValue)[0]] = 
-            `${Object.keys(err.keyValue)[0]} '${Object.values(err.keyValue)[0]}' is already taken`;
+            `${Object.values(err.keyValue)[0]} is already registered`;
         return errors;
     }
 
@@ -35,7 +35,7 @@ exports.signin = async (req, res) => {
     const newUser = new User({username, email, password});
     try {
         let user = await newUser.save();
-        res.send(user);
+        res.status(201).json({user});
     } catch (err) {
         const errors = handleErrors(err);
         res.status(400).json({ errors });
@@ -50,5 +50,6 @@ exports.login = (req, res) => {
 };
 
 exports.logout = (req, res) => {
-    res.send('from logout')
+    req.session.destroy();
+    res.status(200).json({ user: null});
 };

@@ -7,6 +7,6 @@ const userCtrl = require('../controllers/users');
 router.get('/', userCtrl.user_get);
 router.post('/signin', userCtrl.signin);
 router.post('/login', passport.authenticate('local'), userCtrl.login);
-router.post('/logout', userCtrl.logout);
+router.get('/logout', userCtrl.logout);
 
 module.exports = router;

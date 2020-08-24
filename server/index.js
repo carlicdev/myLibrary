@@ -24,7 +24,7 @@ app.use(express.urlencoded({extended: false}));
 app.use(express.json());
 
 // Serve React static files
-app.use(express.static(path.join('../client/build')));
+app.use(express.static(path.join(dirname, '../client/build')));
 
 // Sessions
 app.use(
@@ -44,7 +44,7 @@ app.use('/user', userRouter);
 
 // Handles any requests that don't match the ones above
 app.get('*', (req,res) =>{
-    res.sendFile(path.join('../client/build/index.html'));
+    res.sendFile(path.join(__dirname, '../client/build/index.html'));
 });
 
 app.listen(app.get('PORT'), () => {

@@ -10,6 +10,7 @@ const app = express();
 
 // Routes
 const userRouter = require('./routes/users');
+const productsRouter = require('./routes/products');
 
 // Database
 require('./db/db');
@@ -41,6 +42,7 @@ app.use(passport.session());
 
 // Api
 app.use('/user', userRouter);
+app.use('/api/products', productsRouter);
 
 // Handles any requests that don't match the ones above
 app.get('*', (req,res) =>{

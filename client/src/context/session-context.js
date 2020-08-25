@@ -30,15 +30,14 @@ const SessionContextProvider = (props) => {
                 setServerMsg(data.errors)
             } else {
                 setServerMsg(null)
-               _login(e, username, password)
+               _login(username, password)
             }
         } catch (err) {
             console.log(err)
         }
     }
 
-    const _login = async (e, username, password) => {
-        e.preventDefault();
+    const _login = async (username, password) => {
         await axios.post('/user/login', {username, password});
         getUser();
     }

@@ -7,6 +7,13 @@ const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
 
+    const handleSubmit = e => {
+        e.preventDefault();
+        _login(username, password);
+        setUsername('');
+        setPassword('');
+    }
+
     return (
         <div>
             {
@@ -19,7 +26,7 @@ const Login = () => {
                             <div className='w-full bg-blue-800 p-2 rounded-t'>
                                 <p className='font-semibold text-lg text-white text-center'>Login</p>
                             </div>
-                            <form onSubmit={(e) => _login(e, username, password)}>
+                            <form onSubmit={handleSubmit}>
                                 <div className='flex flex-wrap w-full p-4'>
                                     <label className='w-full text-gray-600 ml-1 mr-auto'>
                                         Username

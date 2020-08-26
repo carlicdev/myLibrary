@@ -7,6 +7,7 @@ import AddBook from './components/UserForms/AddBook';
 import Login from './components/UserForms/Login';
 import Signin from './components/UserForms/Signin';
 import Shop from './components/Shop/Shop';
+import OrdersList from './components/Orders/OrdersList';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Switch>
         <Route exact path='/' component={Home} />
         <Route path ='/shop' component={Shop} />
+        <Route path='/orders' component={OrdersList} />
         <Route path='/add' component={AddBook} />
         <Route path='/login' component={Login} />
         <Route path='/register' component={Signin} />

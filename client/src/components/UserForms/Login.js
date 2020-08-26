@@ -17,7 +17,7 @@ const Login = () => {
     return (
         <div>
             {
-                user && <Redirect to='/add'/>
+                user && <Redirect to='/orders'/>
             }
             {
                 !user && (

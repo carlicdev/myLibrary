@@ -1,10 +1,12 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useContext } from 'react';
 import axios from 'axios';
+import { SessionContext } from './session-context';
 
 export const CartContext = createContext();
 
 const CartContextProvider  = (props) => {
     const [cart, setCart] = useState([]);
+    const { user } = useContext(SessionContext)
 
     const addToCart = (e, name, price, qty, id) => {
         e.preventDefault();
@@ -45,15 +47,18 @@ const CartContextProvider  = (props) => {
         return tempTotal;
     }
 
-    const placeOrder = async (e, total) => {
+    const placeOrder = async (e) => {
         e.preventDefault();
-        console.log(total)
-        let res = await axios.post('/api/orders', {
-            userId: '5f45d60bd4d71d384403caa6',
-            order: cart,
-            total: getTotal().toFixed(2)
-        });
-        console.log(res);
+        if (user) {
+            console.log(user)
+            let res = await axios.post('/api/orders', {
+                order: cart,
+                total: getTotal().toFixed(2)
+            });
+            console.log(res);
+        } else {
+            console.log('Please log in')
+        }
     }
 
     return (

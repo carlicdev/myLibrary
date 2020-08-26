@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import Product from './Product';
+import { CartContext } from '../../context/cart-context';
 
 const ProductList = () => {
     const [products, setProducts] = useState([]);
+    const { addToCart } = useContext(CartContext);
 
     useEffect(() => {
         const getProducts = async () => {
@@ -13,12 +15,11 @@ const ProductList = () => {
         getProducts()
     },[])
 
-    console.log(products)
     return (
         <div className='flex flex-wrap w-full justify-center'>
             {
                 products.map(item => {
-                    return <Product key={item._id} product={item} />
+                    return <Product key={item._id} product={item} addToCart={addToCart} />
                 })
             }
         </div>

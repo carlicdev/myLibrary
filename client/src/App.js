@@ -6,7 +6,7 @@ import Home from './components/Home/Home';
 import AddBook from './components/UserForms/AddBook';
 import Login from './components/UserForms/Login';
 import Signin from './components/UserForms/Signin';
-import ProductList from './components/Products/ProductList';
+import Shop from './components/Shop/Shop';
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
       <Navbar />
       <Switch>
         <Route exact path='/' component={Home} />
-        <Route path ='/products' component={ProductList} />
+        <Route path ='/shop' component={Shop} />
         <Route path='/add' component={AddBook} />
         <Route path='/login' component={Login} />
         <Route path='/register' component={Signin} />

@@ -1,4 +1,5 @@
-import React, { createContext, useState } from 'react'
+import React, { createContext, useState } from 'react';
+import axios from 'axios';
 
 export const CartContext = createContext();
 
@@ -36,13 +37,33 @@ const CartContextProvider  = (props) => {
         }
     }
 
+    const getTotal = () => {
+        let tempTotal = 0;
+        for (let i = 0; i < cart.length; i++) {
+            tempTotal = tempTotal + cart[i].price * cart[i].qty
+        }
+        return tempTotal;
+    }
+
+    const placeOrder = async (e, total) => {
+        e.preventDefault();
+        console.log(total)
+        let res = await axios.post('/api/orders', {
+            userId: '5f45d60bd4d71d384403caa6',
+            order: cart,
+            total: getTotal().toFixed(2)
+        });
+        console.log(res);
+    }
+
     return (
         <CartContext.Provider value={{
             cart, 
             addToCart, 
             removeFromCart,
             addQty,
-            subQty
+            subQty,
+            placeOrder
             }}>
             {props.children}
         </CartContext.Provider>

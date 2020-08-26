@@ -11,6 +11,7 @@ const app = express();
 // Routes
 const userRouter = require('./routes/users');
 const productsRouter = require('./routes/products');
+const ordersRouter = require('./routes/orders');
 
 // Database
 require('./db/db');
@@ -43,6 +44,7 @@ app.use(passport.session());
 // Api
 app.use('/user', userRouter);
 app.use('/api/products', productsRouter);
+app.use('/api/orders', ordersRouter);
 
 // Handles any requests that don't match the ones above
 app.get('*', (req,res) =>{

@@ -4,7 +4,7 @@ import { FiShoppingCart } from 'react-icons/fi';
 import {AiOutlineMinusCircle, AiOutlinePlusCircle } from 'react-icons/ai';
 
 const Cart = () => {
-    const { cart, removeFromCart, addQty, subQty } = useContext(CartContext);
+    const { cart, removeFromCart, addQty, subQty, placeOrder } = useContext(CartContext);
 
     const getTotal = () => {
         let tempTotal = 0;
@@ -58,7 +58,9 @@ const Cart = () => {
                         <div className='text-sm text-gray-800 text-center'>
                             Total: $<span>{getTotal().toFixed(2)}</span>
                         </div>
-                    <button className='rounded w-full bg-yellow-600 py-1 text-center text-white focus:outline-none'>
+                    <button className='rounded w-full bg-yellow-600 py-1 text-center text-white focus:outline-none'
+                            onClick={(e) => placeOrder(e, getTotal().toFixed(2))}
+                    >
                         Checkout
                     </button>
                     </div>

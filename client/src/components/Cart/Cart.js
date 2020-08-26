@@ -42,7 +42,7 @@ const Cart = () => {
                             </div>
                             <p className='text-blue-800 text-sm col-span-1'>$ {(item.price * item.qty).toFixed(2)}</p>
                             <div className='p-1 flex col-span-3'>
-                                <button className='bg-red-500 px-1  text-sm text-white rounded ml-auto mr-1'
+                                <button className='bg-red-500 px-1  text-sm text-white rounded ml-auto mr-1 focus:outline-none'
                                     onClick={(e) => removeFromCart(e, itemIndex)}
                                 >
                                     Eliminar
@@ -53,12 +53,12 @@ const Cart = () => {
                 })
             }
             {
-                cart.length && (
+                cart.length > 0  && (
                     <div>
                         <div className='text-sm text-gray-800 text-center'>
-                            Total: <span>{getTotal().toFixed(2)}</span>
+                            Total: $<span>{getTotal().toFixed(2)}</span>
                         </div>
-                    <button className='rounded w-full bg-yellow-600 py-1 text-center text-white'>
+                    <button className='rounded w-full bg-yellow-600 py-1 text-center text-white focus:outline-none'>
                         Checkout
                     </button>
                     </div>

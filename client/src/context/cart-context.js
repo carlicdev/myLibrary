@@ -1,4 +1,5 @@
 import React, { createContext, useState, useContext } from 'react';
+import { Redirect } from 'react-router-dom';
 import axios from 'axios';
 import { SessionContext } from './session-context';
 
@@ -56,8 +57,10 @@ const CartContextProvider  = (props) => {
                 total: getTotal().toFixed(2)
             });
             console.log(res);
+            return <Redirect to='/orders' />
         } else {
-            console.log('Please log in')
+            console.log('please login')
+            return <Redirect to='/login'/>
         }
     }
 

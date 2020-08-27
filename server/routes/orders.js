@@ -9,4 +9,6 @@ router.post('/', ordersCtrl.post_order);
 router.delete('/:id', ordersCtrl.delete_order);
 router.put('/:id', ordersCtrl.update_order);
 
+router.post('/place-order/:orderId', ordersCtrl.place_order);
+
 module.exports = router;

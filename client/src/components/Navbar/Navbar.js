@@ -45,7 +45,9 @@ const Navbar = () => {
                                 <div>
                                     <div className='hover:bg-blue-800 mx-auto p-1 rounded' onClick={() => setIsOpen(!isOpen)}>
                                         <button type='button' className='focus:outline-none' onClick={_logout}>
+                                            <Link to='/'>
                                             Logout
+                                            </Link>
                                         </button>
                                     </div>
                                     <div className='hover:bg-blue-800 mx-auto p-1 rounded' onClick={() => setIsOpen(!isOpen)}>

@@ -1,4 +1,5 @@
 const Order = require('../models/order');
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 
 exports.get_all_orders = async (req, res) => {
     console.log(req.user)
@@ -31,9 +32,25 @@ exports.post_order = async (req, res) => {
     }
 };
 
+exports.place_order = async (req, res) => {
+
+    const order = await Order.findById(req.params.orderId);
+    //Create paymentIntent with amount and currency
+    const paymentIntent = await stripe.paymentIntents.create({
+        amount: parseInt(order.total) * 100,
+        currency: 'mxn'
+    });
+
+    console.log('sending paymentIntent', paymentIntent);
+    res.send({
+        clientSecret: paymentIntent.client_secret
+    });
+};
+
 exports.delete_order = (req, res) => {
     res.send('hello from del');
 };
-exports.update_order = (req, res) => {
-    res.send('hello from update');
+exports.update_order = async (req, res) => {
+    let updatedOrder = await Order.findByIdAndUpdate(req.params.id, {$set: {status: 'placed'}});
+    res.status(201).json({updatedOrder});
 };

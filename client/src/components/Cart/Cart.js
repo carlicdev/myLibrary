@@ -1,10 +1,13 @@
-import React, { useContext } from 'react'
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import { CartContext } from '../../context/cart-context';
 import { FiShoppingCart } from 'react-icons/fi';
 import {AiOutlineMinusCircle, AiOutlinePlusCircle } from 'react-icons/ai';
+import { SessionContext } from '../../context/session-context';
 
 const Cart = () => {
     const { cart, removeFromCart, addQty, subQty, placeOrder } = useContext(CartContext);
+    const { user } = useContext(SessionContext);
 
     const getTotal = () => {
         let tempTotal = 0;
@@ -61,7 +64,9 @@ const Cart = () => {
                     <button className='rounded w-full bg-yellow-600 py-1 text-center text-white focus:outline-none'
                             onClick={(e) => placeOrder(e, getTotal().toFixed(2))}
                     >
+                        <Link to={user ? '/orders' : '/login'}>
                         Checkout
+                        </Link>
                     </button>
                     </div>
                 )

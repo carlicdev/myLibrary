@@ -11,7 +11,7 @@ const Navbar = () => {
 
     return (
         <div>
-            <div className='w-full bg-blue-800'>
+            <div className='w-full bg-green-800'>
                 <div className='flex p-2 justify-center content-center'>
                     <div className='text-white m-2 '>
                         <Link to='/'>
@@ -39,18 +39,18 @@ const Navbar = () => {
             </div>
             {
                 isOpen && (
-                    <div className=' absolute top-1 right-0  text-white bg-blue-600 mr-1 p-2 rounded-b'>
+                    <div className=' absolute top-1 right-0  text-white bg-green-600 mr-1 p-2 rounded-b'>
                         {
                             user && (
                                 <div>
-                                    <div className='hover:bg-blue-800 mx-auto p-1 rounded' onClick={() => setIsOpen(!isOpen)}>
+                                    <div className='hover:bg-green-800 mx-auto p-1 rounded' onClick={() => setIsOpen(!isOpen)}>
                                         <button type='button' className='focus:outline-none' onClick={_logout}>
                                             <Link to='/'>
                                             Logout
                                             </Link>
                                         </button>
                                     </div>
-                                    <div className='hover:bg-blue-800 mx-auto p-1 rounded' onClick={() => setIsOpen(!isOpen)}>
+                                    <div className='hover:bg-green-800 mx-auto p-1 rounded' onClick={() => setIsOpen(!isOpen)}>
                                         <Link to='/orders'>
                                             MyOrders
                                         </Link>
@@ -61,14 +61,14 @@ const Navbar = () => {
                         {
                             !user && (
                                 <div>
-                                    <div className='hover:bg-blue-800 mx-auto p-1 rounded'
+                                    <div className='hover:bg-green-800 mx-auto p-1 rounded'
                                         onClick={() => setIsOpen(!isOpen)}
                                     >
                                         <Link to='/login'>
                                             Login
                                         </Link>
                                     </div>
-                                    <div className='hover:bg-blue-800 mx-auto p-1 rounded'
+                                    <div className='hover:bg-green-800 mx-auto p-1 rounded'
                                         onClick={() => setIsOpen(!isOpen)}
                                     >
                                         <Link to='/register'>

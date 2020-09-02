@@ -17,13 +17,13 @@ const Login = () => {
     return (
         <div>
             {
-                user && <Redirect to='/orders'/>
+                user && <Redirect to='/store'/>
             }
             {
                 !user && (
                     <div className='container py-10'>
                         <div className='max-w-sm bg-gray-100 mx-auto shadow-md rounded'>
-                            <div className='w-full bg-blue-800 p-2 rounded-t'>
+                            <div className='w-full bg-green-800 p-2 rounded-t'>
                                 <p className='font-semibold text-lg text-white text-center'>Login</p>
                             </div>
                             <form onSubmit={handleSubmit}>
@@ -44,7 +44,7 @@ const Login = () => {
                                             value={password}
                                             onChange={(e) => setPassword(e.target.value)}
                                     />
-                                    <button type='submit' className='mt-4 bg-blue-800 py-1 px-4 text-white focus:outline-none rounded w-full'>
+                                    <button type='submit' className='mt-4 bg-green-800 hover:bg-green-700 py-1 px-4 text-white focus:outline-none rounded w-full'>
                                         Login
                                     </button>
                                 </div>

@@ -17,7 +17,7 @@ const Signin = () => {
                 !user && (
                     <div className='container py-10'>
                         <div className='max-w-sm bg-gray-100 mx-auto shadow-md rounded'>
-                            <div className='w-full bg-blue-800 p-2 rounded-t'>
+                            <div className='w-full bg-green-800 p-2 rounded-t'>
                                 <p className='font-semibold text-lg text-white text-center'>Register</p>
                             </div>
                             <form onSubmit={(e) => _signin(e, username, email, password)}>
@@ -55,7 +55,7 @@ const Signin = () => {
                                                     {
                                                         serverMsg ? <p className='text-small text-red-700'>{serverMsg.password}</p> : null
                                                     }
-                                    <button type='submit' className='mt-4 bg-blue-800 py-1 px-4 text-white focus:outline-none rounded w-full'>
+                                    <button type='submit' className='mt-4 bg-green-800 hover:bg-green-700 py-1 px-4 text-white focus:outline-none rounded w-full'>
                                         Register
                                     </button>
                                 </div>

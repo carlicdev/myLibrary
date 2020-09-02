@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
-import Product from './Product';
+import ProductCard from './ProductCard';
 import { CartContext } from '../../context/cart-context';
 
 const ProductList = () => {
@@ -19,7 +19,7 @@ const ProductList = () => {
         <div className='flex flex-wrap w-full justify-center'>
             {
                 products.map(item => {
-                    return <Product key={item._id} product={item} addToCart={addToCart} />
+                    return <ProductCard key={item._id} product={item} addToCart={addToCart} />
                 })
             }
         </div>

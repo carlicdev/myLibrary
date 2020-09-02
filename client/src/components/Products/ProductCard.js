@@ -9,7 +9,7 @@ const ProductCard = (props) => {
         <div className='flex flex-wrap lg:1/3 max-w-sm bg-gray-300 m-2'>
             <div className='w-1/2  inline-block'>
 
-            <img src={require('../../images/cbdOil.jpg')}  className='w-full h-48'/>
+            <img src={require('../../images/cbdOil.jpg')}  className='w-full h-48' alt='cbd Oil'/>
             </div>
             <div className='w-1/2 inline-block text-center'>
             <div className='text-gray-800 text-xl  font-semibold mt-5'>

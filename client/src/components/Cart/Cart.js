@@ -61,7 +61,7 @@ const Cart = () => {
                         <div className='text-sm text-gray-800 text-center'>
                             Total: $<span>{getTotal().toFixed(2)}</span>
                         </div>
-                    <button className='rounded w-full bg-green-800 py-1 text-center text-white focus:outline-none'
+                    <button className='rounded w-full bg-green-800 hover:bg-green-700 py-1 text-center text-white focus:outline-none'
                             onClick={(e) => placeOrder(e, getTotal().toFixed(2))}
                     >
                         <Link to={user ? '/orders' : '/login'}>
@@ -74,7 +74,7 @@ const Cart = () => {
             {
                 !cart.length && (
                     <div className='bg-green-800 text-white text-center p-2'>
-                        Cart is empty
+                        Tu carrito está vacío
                     </div>
                 )
             }

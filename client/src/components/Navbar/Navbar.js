@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { FaBookMedical, FaUserCircle, FaCannabis } from 'react-icons/fa';
+import { FaUserCircle, FaCannabis } from 'react-icons/fa';
 import { IoMdCloseCircle } from 'react-icons/io';
 import { SessionContext } from '../../context/session-context';
 

@@ -11,7 +11,7 @@ const CheckoutForm = (props) => {
     const stripe = useStripe();
     const elements = useElements();
 
-    // Create oayment intent when mounting
+    // Create payment intent when mounting
     useEffect(() => {
         window.fetch(`/api/orders/place-order/${props.orderId}`, {
             method: 'POST',
@@ -88,7 +88,7 @@ const CheckoutForm = (props) => {
         <div>
             <form onSubmit={handleSubmit}>
                 <CardElement id='card-element' options={cardStyle} onChange={handleChange} />
-                <button className='bg-yellow-600 w-full p-2 text-white text-center rounded font-semibold'
+                <button className='bg-green-600 w-full p-2 text-white text-center rounded font-semibold'
                     disabled={processing || disabled || succeeded}
                     id='submit'
                 >

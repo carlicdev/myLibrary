@@ -11,7 +11,7 @@ const Signin = () => {
     return (
         <div>
             {
-                user && <Redirect to='/add'/>
+                user && <Redirect to='/store'/>
             }
             {
                 !user && (

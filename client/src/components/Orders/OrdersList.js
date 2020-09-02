@@ -18,17 +18,17 @@ const OrdersList = () => {
     return (
         <div>
             <div className='flex w-full justify-center mt-4'>
-                <button className=' active bg-gray-200 font-semibold selected text-gray-800 hover:bg-green-700 hover:border-blue-700 hover:text-white w-32  border border-gray-500 focus:border-blue-800 focus:outline-none focus:bg-blue-800 focus:text-white py-1 rounded-l'
+                <button className=' active bg-gray-200 font-semibold selected text-gray-800 hover:bg-green-700 hover:border-green-700 hover:text-white w-32  border border-gray-500 focus:border-green-800 focus:outline-none focus:bg-green-800 focus:text-white py-1 rounded-l'
                         onClick={() => setSortedby('')}
                 >
                     All
                 </button>
-                <button className='bg-gray-200 font-semibold text-gray-800 hover:bg-green-700 hover:border-blue-700 hover:text-white w-32  border border-gray-500 focus:border-blue-800 focus:outline-none focus:bg-blue-800 focus:text-white py-1'
+                <button className='bg-gray-200 font-semibold text-gray-800 hover:bg-green-700 hover:border-green-700 hover:text-white w-32  border border-gray-500 focus:border-green-800 focus:outline-none focus:bg-green-800 focus:text-white py-1'
                         onClick={() => setSortedby('pending')}
                 >
                     Pending
                 </button>
-                <button className='bg-gray-200 font-semibold text-gray-800 hover:bg-green-700 hover:border-blue-700 hover:text-white w-32  border border-gray-500 focus:border-blue-800 focus:outline-none focus:bg-blue-800 focus:text-white py-1 rounded-r'
+                <button className='bg-gray-200 font-semibold text-gray-800 hover:bg-green-700 hover:border-green-700 hover:text-white w-32  border border-gray-500 focus:border-green-800 focus:outline-none focus:bg-green-800 focus:text-white py-1 rounded-r'
                         onClick={() => setSortedby('placed')}
                 >
                     Placed
